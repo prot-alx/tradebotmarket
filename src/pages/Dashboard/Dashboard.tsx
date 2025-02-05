@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  getSelectedTimeRange,
-  getSelectedBot,
-  saveSelectedTimeRange,
-  saveSelectedBot,
-} from "@/utils";
+import { getTradingData, saveTradingData } from "@/utils";
 import {
   BalanceInfo,
   BotGrid,
@@ -14,28 +9,37 @@ import {
   TimeRangeSelector,
   TradingCapital,
 } from "@/components";
-import { BotName, TimeRange, timeRanges } from "@/types";
+import { BotName, TimeRange, TradingData } from "@/types";
 
 export const Dashboard = () => {
+  const [data, setData] = useState<TradingData>(getTradingData());
   const [selectedTimeRange, setSelectedTimeRange] = useState<TimeRange>("24h");
   const [selectedBot, setSelectedBot] = useState<BotName>("yellow_bot");
 
   useEffect(() => {
-    const savedTimeRange = getSelectedTimeRange();
-    const savedBot = getSelectedBot();
-
-    if (savedTimeRange && timeRanges.includes(savedTimeRange)) {
-      setSelectedTimeRange(savedTimeRange);
-    }
-    if (savedBot) {
-      setSelectedBot(savedBot);
-    }
+    const savedData = getTradingData();
+    setData(savedData);
   }, []);
 
-  useEffect(() => {
-    saveSelectedTimeRange(selectedTimeRange);
-    saveSelectedBot(selectedBot);
-  }, [selectedTimeRange, selectedBot]);
+  const handleTimeRangeChange = (range: TimeRange) => {
+    setSelectedTimeRange(range);
+    const updatedData = {
+      ...data,
+      selectedTimeRange: range,
+    };
+    setData(updatedData);
+    saveTradingData(updatedData);
+  };
+
+  const handleBotChange = (bot: BotName) => {
+    setSelectedBot(bot);
+    const updatedData = {
+      ...data,
+      selectedBot: bot,
+    };
+    setData(updatedData);
+    saveTradingData(updatedData);
+  };
 
   return (
     <div className="h-screen w-screen bg-slate-900 text-white p-4 flex flex-col">
@@ -48,12 +52,12 @@ export const Dashboard = () => {
       />
       <BotGrid
         selectedBot={selectedBot}
-        setSelectedBot={setSelectedBot}
+        setSelectedBot={handleBotChange}
         selectedTimeRange={selectedTimeRange}
       />
       <TimeRangeSelector
         selectedTimeRange={selectedTimeRange}
-        setSelectedTimeRange={setSelectedTimeRange}
+        setSelectedTimeRange={handleTimeRangeChange}
       />
       <BottomNavigation />
     </div>

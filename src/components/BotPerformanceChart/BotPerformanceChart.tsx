@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
-import { generateChartData } from "@/utils";
-import { getBotPerformance, getBotColor } from "@/utils";
+import {
+  generateChartData,
+  getBotPerformance,
+  getBotColor,
+  getPointsForTimeRange,
+} from "@/utils";
 import { BotName, ChartDataPoint, TimeRange } from "@/types";
 
 interface BotPerformanceChartProps {
@@ -16,7 +20,8 @@ export const BotPerformanceChart = ({
   const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
 
   useEffect(() => {
-    setChartData(generateChartData());
+    const points = getPointsForTimeRange(selectedTimeRange);
+    setChartData(generateChartData(points));
   }, [selectedBot, selectedTimeRange]);
 
   return (

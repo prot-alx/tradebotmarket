@@ -1,22 +1,24 @@
-import { TimeRange, BotName } from "@/types";
+import { initialData } from "@/data";
+import { TradingData } from "@/types";
 
-const STORAGE_KEYS = {
-  TIME_RANGE: "selectedTimeRange",
-  BOT: "selectedBot",
+const STORAGE_KEY = "tradingData";
+
+export const saveTradingData = (data: TradingData) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 };
 
-export const saveSelectedTimeRange = (timeRange: TimeRange) => {
-  localStorage.setItem(STORAGE_KEYS.TIME_RANGE, timeRange);
-};
+export const getTradingData = (): TradingData => {
+  const savedData = localStorage.getItem(STORAGE_KEY);
+  if (!savedData) {
+    saveTradingData(initialData);
+    return initialData;
+  }
 
-export const saveSelectedBot = (bot: BotName) => {
-  localStorage.setItem(STORAGE_KEYS.BOT, bot);
-};
-
-export const getSelectedTimeRange = (): TimeRange | null => {
-  return localStorage.getItem(STORAGE_KEYS.TIME_RANGE) as TimeRange | null;
-};
-
-export const getSelectedBot = (): BotName | null => {
-  return localStorage.getItem(STORAGE_KEYS.BOT) as BotName | null;
+  try {
+    return JSON.parse(savedData);
+  } catch (error) {
+    console.error("Error parsing trading data from localStorage:", error);
+    saveTradingData(initialData);
+    return initialData;
+  }
 };
