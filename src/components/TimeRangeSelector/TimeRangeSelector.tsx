@@ -1,9 +1,11 @@
-import { TimeRange, timeRanges } from "@/types";
+import { TimeRange } from "@/types";
 
 interface TimeRangeSelectorProps {
   selectedTimeRange: TimeRange;
   setSelectedTimeRange: (range: TimeRange) => void;
 }
+
+const timeRanges: TimeRange[] = ["24h", "7d", "30d", "all_time"];
 
 export const TimeRangeSelector = ({
   selectedTimeRange,
