@@ -21,8 +21,6 @@ npm run prod
 
 ### Запуск в Docker
 
-Приложение будет доступно по адресу `http://localhost:4173`
-
 1. Убедитесь, что у вас установлены Docker и Docker Compose
 
 2. Запустите контейнер:
@@ -33,3 +31,5 @@ docker-compose up -d
 ```bash
 npm run docker:start
 ```
+
+Приложение будет доступно по адресу `http://localhost:4173`
