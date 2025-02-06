@@ -40,13 +40,13 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col h-full w-full justify-between">
-      <div className="space-y-4 mb-auto flex justify-between px-7">
+    <div className="flex flex-col h-full w-full justify-between py-3">
+      <div className="flex justify-between px-7 h-[9vh]">
         <TradingCapital />
         <BalanceInfo />
       </div>
 
-      <div className="flex-1">
+      <div className="flex-1 flex justify-center items-center">
         <BotPerformanceChart
           selectedBot={selectedBot}
           selectedTimeRange={selectedTimeRange}

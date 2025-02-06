@@ -35,8 +35,8 @@ export const BotPerformanceChart = ({
   }, [selectedBot, selectedTimeRange]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto relative">
-      <div className="h-32 sm:h-40 md:h-48 lg:h-56">
+    <div className="w-full mx-auto relative">
+      <div className="h-[30vh]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
@@ -45,7 +45,7 @@ export const BotPerformanceChart = ({
               top: 10,
               right: 0,
               left: 0,
-              bottom: 0,
+              bottom: 10,
             }}
           >
             <defs>

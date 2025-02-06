@@ -1,4 +1,5 @@
 import { initialData } from "@/data";
+import { BotIcon } from "@/images/BotIcon";
 import { BotName, TimeRange } from "@/types";
 import { getBotColor, getBotPerformance } from "@/utils";
 
@@ -13,20 +14,18 @@ export const BotGrid = ({
   setSelectedBot,
   selectedTimeRange,
 }: BotGridProps) => (
-  <div className="grid grid-cols-3 gap-4 max-md:gap-2">
+  <div className="grid grid-cols-3 gap-4 h-[30vh]">
     {initialData.bots.map((bot) => (
       <button
         key={bot.name}
         onClick={() => setSelectedBot(bot.name)}
-        className={`p-4 max-md:p-2 rounded-lg flex flex-col items-center cursor-pointer ${
+        className={`p-4 max-md:p-2 rounded-lg flex flex-col items-center justify-center cursor-pointer ${
           selectedBot === bot.name ? "bg-slate-800" : ""
         }`}
       >
-        <div
-          className="w-8 h-8"
-          style={{
-            backgroundColor: getBotColor(bot.name),
-          }}
+        <BotIcon
+          color={getBotColor(bot.name)}
+          className="w-[70px] max-sm:w-[40px]"
         />
         <div className="text-sm">
           {bot.name.replace("_bot", "").toUpperCase()}

@@ -12,7 +12,7 @@ export const BottomNavigation = () => {
   };
 
   return (
-    <div className="mt-auto flex justify-around items-center bg-amber-500">
+    <div className="mt-auto flex justify-around items-center">
       {navigationItems.map(({ icon, label, path }) => (
         <NavigationButton
           key={label}

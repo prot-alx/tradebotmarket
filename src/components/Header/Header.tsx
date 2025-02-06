@@ -1,6 +1,6 @@
-import { Menu } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { navigationItems } from "@/components/BottonNavigation/config";
+import { MenuIcon, RefreshButton } from "@/images/Header";
 
 export const Header = () => {
   const location = useLocation();
@@ -11,12 +11,16 @@ export const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center mb-4 bg-amber-500">
-      <Menu className="w-9 h-9" />
-      <h1 className="text-2xl font-light">
+    <div className="flex justify-between items-center px-6 my-4">
+      <img
+        alt="burger-icon"
+        className="w-11 max-sm:w-8 brightness-100"
+        src={MenuIcon}
+      ></img>
+      <h1 className="text-[34px] max-sm:text-2xl font-light">
         {getCurrentPageTitle(location.pathname)}
       </h1>
-      <div className="w-6 h-6" />
+      <img alt='refresh-button' className="w-11 max-sm:w-8 brightness-100" src={RefreshButton}></img>
     </div>
   );
 };
