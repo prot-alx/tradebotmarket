@@ -6,7 +6,7 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="flex flex-col h-screen bg-deep-navy text-pure-white">
+    <div className="flex flex-col h-screen bg-midnight-blue text-pure-white">
       <header className="flex-shrink-0">
         <Header />
       </header>

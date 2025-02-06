@@ -14,13 +14,13 @@ export const BotGrid = ({
   setSelectedBot,
   selectedTimeRange,
 }: BotGridProps) => (
-  <div className="grid grid-cols-3 gap-4 h-[30vh]">
+  <div className="grid grid-cols-3 gap-1 h-[30vh]">
     {initialData.bots.map((bot) => (
       <button
         key={bot.name}
         onClick={() => setSelectedBot(bot.name)}
-        className={`p-4 max-md:p-2 rounded-lg flex flex-col items-center justify-center cursor-pointer ${
-          selectedBot === bot.name ? "bg-slate-800" : ""
+        className={`p-4 max-md:p-2 rounded-[2px] flex flex-col items-center justify-center cursor-pointer bg-deep-navy ${
+          selectedBot === bot.name ? "bg-midnight-blue" : ""
         }`}
       >
         <BotIcon
