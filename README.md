@@ -17,6 +17,8 @@ npm install
 npm run prod
 ```
 
+Приложение будет доступно по адресу `http://localhost:4174`
+
 ### Запуск в Docker
 
 Приложение будет доступно по адресу `http://localhost:4173`
@@ -31,4 +33,3 @@ docker-compose up -d
 ```bash
 npm run docker:start
 ```
-Приложение будет доступно по адресу `http://localhost:4174`
