@@ -1,0 +1,9 @@
+services:
+  jun_test_task:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tradebotmarket_spa
+    ports:
+      - "4174:80"
+    restart: unless-stopped

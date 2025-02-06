@@ -7,11 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prod": "npm run build && npm run preview",
+    "docker:build": "docker compose build",
+    "docker:start": "docker compose up -d",
+    "docker:stop": "docker compose down",
+    "docker:restart": "npm run docker:stop && npm run docker:start"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.3",
-    "lucide-react": "^0.474.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.5",

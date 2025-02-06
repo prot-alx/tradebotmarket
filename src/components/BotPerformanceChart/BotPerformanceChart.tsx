@@ -92,3 +92,5 @@ export const BotPerformanceChart = ({
     </div>
   );
 };
+
+export default BotPerformanceChart;

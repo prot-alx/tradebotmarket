@@ -1,13 +1,16 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getTradingData, saveTradingData } from "@/utils";
 import {
   BalanceInfo,
   BotGrid,
-  BotPerformanceChart,
   TimeRangeSelector,
   TradingCapital,
 } from "@/components";
 import { BotName, TimeRange, TradingData } from "@/types";
+
+const BotPerformanceChart = React.lazy(
+  () => import("@/components/BotPerformanceChart/BotPerformanceChart")
+);
 
 export const Dashboard = () => {
   const [data, setData] = useState<TradingData>(getTradingData());
