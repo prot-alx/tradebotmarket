@@ -4,8 +4,6 @@ import {
   BalanceInfo,
   BotGrid,
   BotPerformanceChart,
-  BottomNavigation,
-  Header,
   TimeRangeSelector,
   TradingCapital,
 } from "@/components";
@@ -42,24 +40,30 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-slate-900 text-white p-4 flex flex-col">
-      <Header />
-      <TradingCapital />
-      <BalanceInfo />
-      <BotPerformanceChart
-        selectedBot={selectedBot}
-        selectedTimeRange={selectedTimeRange}
-      />
-      <BotGrid
-        selectedBot={selectedBot}
-        setSelectedBot={handleBotChange}
-        selectedTimeRange={selectedTimeRange}
-      />
-      <TimeRangeSelector
-        selectedTimeRange={selectedTimeRange}
-        setSelectedTimeRange={handleTimeRangeChange}
-      />
-      <BottomNavigation />
+    <div className="flex flex-col h-full w-full justify-between">
+      <div className="space-y-4 mb-auto flex justify-between px-7">
+        <TradingCapital />
+        <BalanceInfo />
+      </div>
+
+      <div className="flex-1">
+        <BotPerformanceChart
+          selectedBot={selectedBot}
+          selectedTimeRange={selectedTimeRange}
+        />
+      </div>
+
+      <div className="space-y-4 mt-auto px-7">
+        <BotGrid
+          selectedBot={selectedBot}
+          setSelectedBot={handleBotChange}
+          selectedTimeRange={selectedTimeRange}
+        />
+        <TimeRangeSelector
+          selectedTimeRange={selectedTimeRange}
+          setSelectedTimeRange={handleTimeRangeChange}
+        />
+      </div>
     </div>
   );
 };

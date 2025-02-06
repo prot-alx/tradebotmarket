@@ -1,21 +1,21 @@
 import {
-  ChartBar,
-  DollarSign,
-  LucideIcon,
-  Menu,
-  Settings,
-  ShoppingCart,
-} from "lucide-react";
+  botmarketIcon,
+  coinpricesIcon,
+  dashboardIcon,
+  megabotIcon,
+  profileIcon,
+} from "@/images/BottomNavMenu";
 
 type NavigationItem = {
-  icon: LucideIcon;
+  icon: string;
   label: string;
+  path: string;
 };
 
 export const navigationItems: NavigationItem[] = [
-  { icon: Menu, label: "Dashboard" },
-  { icon: ChartBar, label: "Megabot" },
-  { icon: ShoppingCart, label: "Bot market" },
-  { icon: DollarSign, label: "Coin prices" },
-  { icon: Settings, label: "Profile" },
+  { icon: dashboardIcon, label: "Dashboard", path: "/dashboard" },
+  { icon: megabotIcon, label: "Megabot", path: "/megabot" },
+  { icon: botmarketIcon, label: "Bot market", path: "/bot-market" },
+  { icon: coinpricesIcon, label: "Coin prices", path: "/coin-prices" },
+  { icon: profileIcon, label: "Profile", path: "/profile" },
 ];

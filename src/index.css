@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@theme {
+  --color-slate-blue: #546076;
+  --color-pure-white: #FFFFFF;
+  --color-deep-navy: #252D40;
+  --color-forest-green: #78A659;
+  --color-midnight-blue: #1D2637;
+  --color-oxford-blue: #273246;
+  --color-dark-slate: #232C3E;
+  --color-bright-pink: #D2447B;
+  --color-ocean-blue: #4794C4;
+  --color-sky-blue: #9CC4EF;
+  --color-sunset-orange: #E4972D;
+  --color-bright-red: #F11D0D;
+  --color-vibrant-orange: #F96400;
+  --color-sunny-yellow: #FEDA32;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('@/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: 'Roboto', sans-serif, Arial;
+}
