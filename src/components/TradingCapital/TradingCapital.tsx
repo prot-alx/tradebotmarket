@@ -2,8 +2,10 @@ import { initialData } from "@/data";
 
 export const TradingCapital = () => (
   <div>
-    <div className="text-slate-blue mb-2 font-normal">trading capital</div>
-    <div className="text-2xl sm:text-5xl md:text-7xl font-bold">
+    <div className="text-slate-blue mb-2 font-normal" style={{ fontSize: '1em' }}>
+      trading capital
+    </div>
+    <div className="font-bold" style={{ fontSize: 'clamp(1.5em, 5vw, 4.5em)' }}>
       {initialData.trading_capital}{" "}
       {initialData.trading_capital_currency.toUpperCase()}
     </div>
