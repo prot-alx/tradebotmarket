@@ -66,6 +66,7 @@ export const BotPerformanceChart = ({
             <CartesianGrid stroke="#546076" strokeDasharray="7 7" />
             <XAxis
               dataKey="name"
+              fontSize={14}              
               tickFormatter={(name) => formatChartTick(name, selectedTimeRange)}
               interval="preserveStartEnd"
             />

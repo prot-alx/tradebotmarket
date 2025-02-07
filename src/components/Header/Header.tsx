@@ -17,10 +17,14 @@ export const Header = () => {
         className="w-11 max-sm:w-8 brightness-100"
         src={MenuIcon}
       ></img>
-      <h1 className="text-[34px] max-sm:text-2xl font-light">
+      <h1 className="text-[34px] max-sm:text-2xl font-light text-slate-blue">
         {getCurrentPageTitle(location.pathname)}
       </h1>
-      <img alt='refresh-button' className="w-11 max-sm:w-8 brightness-100" src={RefreshButton}></img>
+      <img
+        alt="refresh-button"
+        className="w-11 max-sm:w-8 brightness-100"
+        src={RefreshButton}
+      ></img>
     </div>
   );
 };
